@@ -1,0 +1,5 @@
+test:
+  pre:
+    - go get github.com/Owanesh/ansa-go
+  override:
+    - go test -v -cover -race -coverprofile=/home/ubuntu/coverage.out
