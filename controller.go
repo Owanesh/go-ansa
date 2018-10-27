@@ -2,49 +2,48 @@ package ansa
 
 import (
 	"encoding/xml"
-	"errors"
+	"fmt"
 	"net/http"
 )
 
 func isValidTopic(topic string) (bool, error) {
-	check := CHANNELS_URL[topic]
-	if check != "" {
-		return true, nil
-	} else {
-		return false, errors.New("Invalid topic \"" + topic + "\"")
+	if topic, ok := CHANNELS_URL[topic]; !ok {
+		return false, fmt.Errorf("Invalid topic: %s", topic)
 	}
+
+	return true, nil
 }
 
 func getChannelLinkByTopic(topic string) (string, error) {
-	valid, err := isValidTopic(topic)
-	if err != nil && !valid {
+	if _, err := isValidTopic(topic); err != nil {
 		return "", err
-	} else {
-		return CHANNELS_URL[topic], nil
 	}
+
+	return CHANNELS_URL[topic], nil
 }
 
 func getXmlDecodedByLink(link string) (RSS, error) {
-	var RSSerr RSS
 	resp, err := http.Get(link)
 	if err != nil {
-		return RSSerr, nil
+		return RSS{}, err
 	}
 	defer resp.Body.Close()
-	rss := RSS{}
+
+	var rss RSS
 	decoder := xml.NewDecoder(resp.Body)
 	err = decoder.Decode(&rss)
 	if err != nil {
 		return rss, err
 	}
+
 	return rss, nil
 }
 
 func getDecodedTopic(topic string) (RSS, error) {
-	var RSSerr RSS
 	link, err := getChannelLinkByTopic(topic)
-	if link != "" {
-		return getXmlDecodedByLink(link)
+	if err != nil {
+		return RSS{}, err
 	}
-	return RSSerr, err
+
+	return getXmlDecodedByLink(link)
 }

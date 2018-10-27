@@ -1,42 +1,45 @@
 package ansa
 
-const BASE_URL string = "http://www.ansa.it/"
+// Channels
+const (
+	BASE_URL              string = "http://www.ansa.it/"
+	HOMEPAGE                     = "Homepage"
+	CRONACA                      = "Cronaca"
+	POLITICA                     = "Politica"
+	WORLD                        = "Mondo"
+	ECONOMY                      = "Economia"
+	SOCCER                       = "Calcio"
+	SPORT                        = "Sport"
+	CINEMA                       = "Cinema"
+	CULTURE                      = "Cultura"
+	TECHONOLOGY                  = "Tecnologia"
+	LASTHOUR                     = "Ultimaora"
+	ENGLISHNEWS                  = "Englishnews"
+	FOTO                         = "Foto"
+	VIDEO                        = "Video"
+	ABRUZZO                      = "Abruzzo"
+	BASILICATA                   = "Basilicata"
+	CALABRIA                     = "Calabria"
+	CAMPANIA                     = "Campania"
+	EMILIA_ROMAGNA               = "Emilia-Romagna"
+	FRIULI_VENEZIA_GIULIA        = "Friuli-Venezia-Giulia"
+	LAZIO                        = "Lazio"
+	LIGURIA                      = "Liguria"
+	LOMBARDIA                    = "Lombardia"
+	MARCHE                       = "Marche"
+	MOLISE                       = "Molise"
+	PIEMONTE                     = "Piemonte"
+	PUGLIA                       = "Puglia"
+	SARDEGNA                     = "Sardegna"
+	SICILIA                      = "Sicilia"
+	TOSCANA                      = "Toscana"
+	TRENTINO_ALTO_ADIGE          = "Trentino-Alto-Adige"
+	UMBRIA                       = "Umbria"
+	VALLE_AOSTA                  = "Valle-Aosta"
+	VENETO                       = "Veneto"
+)
 
-const HOMEPAGE string = "Homepage"
-const CRONACA string = "Cronaca"
-const POLITICA string = "Politica"
-const WORLD string = "Mondo"
-const ECONOMY string = "Economia"
-const SOCCER string = "Calcio"
-const SPORT string = "Sport"
-const CINEMA string = "Cinema"
-const CULTURE string = "Cultura"
-const TECHONOLOGY string = "Tecnologia"
-const LASTHOUR string = "Ultimaora"
-const ENGLISHNEWS string = "Englishnews"
-const FOTO string = "Foto"
-const VIDEO string = "Video"
-const ABRUZZO string = "Abruzzo"
-const BASILICATA string = "Basilicata"
-const CALABRIA string = "Calabria"
-const CAMPANIA string = "Campania"
-const EMILIA_ROMAGNA string = "Emilia-Romagna"
-const FRIULI_VENEZIA_GIULIA string = "Friuli-Venezia-Giulia"
-const LAZIO string = "Lazio"
-const LIGURIA string = "Liguria"
-const LOMBARDIA string = "Lombardia"
-const MARCHE string = "Marche"
-const MOLISE string = "Molise"
-const PIEMONTE string = "Piemonte"
-const PUGLIA string = "Puglia"
-const SARDEGNA string = "Sardegna"
-const SICILIA string = "Sicilia"
-const TOSCANA string = "Toscana"
-const TRENTINO_ALTO_ADIGE string = "Trentino-Alto-Adige"
-const UMBRIA string = "Umbria"
-const VALLE_AOSTA string = "Valle-Aosta"
-const VENETO string = "Veneto"
-
+// TOPIC_LIST contains all topics.
 var TOPIC_LIST = []string{
 	HOMEPAGE,
 	CRONACA,
@@ -71,8 +74,10 @@ var TOPIC_LIST = []string{
 	TRENTINO_ALTO_ADIGE,
 	UMBRIA,
 	VALLE_AOSTA,
-	VENETO}
+	VENETO,
+}
 
+// CHANNELS_URL is a mapping from channel to URL
 var CHANNELS_URL = map[string]string{
 	HOMEPAGE:              BASE_URL + "sito/ansait_rss.xml",
 	CRONACA:               BASE_URL + "sito/notizie/cronaca/cronaca_rss.xml",
@@ -107,4 +112,5 @@ var CHANNELS_URL = map[string]string{
 	TRENTINO_ALTO_ADIGE:   BASE_URL + "trentino/notizie/trentino_rss.xml",
 	UMBRIA:                BASE_URL + "umbria/notizie/umbria_rss.xml",
 	VALLE_AOSTA:           BASE_URL + "valledaosta/notizie/valledaosta_rss.xml",
-	VENETO:                BASE_URL + "veneto/notizie/veneto_rss.xml"}
+	VENETO:                BASE_URL + "veneto/notizie/veneto_rss.xml",
+}

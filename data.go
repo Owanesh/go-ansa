@@ -1,5 +1,6 @@
 package ansa
 
+// Feed contains information about the RSS feed
 type Feed struct {
 	Title       string `xml:"title"`
 	Link        string `xml:"link"`
@@ -8,6 +9,7 @@ type Feed struct {
 	PubDate     string `xml:"pubDate"`
 }
 
+// Channel contains information about the channel. It contains zero or more feeds.
 type Channel struct {
 	Title       string `xml:"title"`
 	Link        string `xml:"link"`
@@ -16,6 +18,7 @@ type Channel struct {
 	Feeds       []Feed `xml:"item"`
 }
 
+// RSS contains the Channel.
 type RSS struct {
 	Channel Channel `xml:"channel"`
 }
