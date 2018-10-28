@@ -9,6 +9,7 @@ import (
 	"github.com/julienschmidt/httprouter"
 )
 
+// Handler is where the router paths are setup
 func Handler(service fetching.Service) http.Handler {
 	router := httprouter.New()
 

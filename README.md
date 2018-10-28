@@ -13,6 +13,12 @@ Package github.com/julienschmidt/httprouter is used for request routing.
 And then make a request to http://localhost:8080/channels/Homepage, where Homepage is an example topic. 
 You should be able to get an xml response corresponding to the RSS channel.
 
+## Documentation
+
+`godoc -http=:6060`
+
+Go to http://localhost:6060/pkg/github.com/Owanesh/go-ansa/
+
 ## Explanation
 
 The application is divided in several parts. 

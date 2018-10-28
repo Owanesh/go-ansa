@@ -47,8 +47,10 @@ const (
 	veneto              string = "Veneto"
 )
 
+// Storage is the struct that implements services repositories
 type Storage struct{}
 
+// GetChannelByTopic makes an http request to the ansa topic, returning the resulting RSS
 func (s *Storage) GetChannelByTopic(topic string) (*fetching.RSS, error) {
 
 	link := s.getTopicLink(topic)
